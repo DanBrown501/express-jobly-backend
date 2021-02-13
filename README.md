@@ -127,8 +127,90 @@ Part Four:
 
     Companies:
 
-    
+    POST /companies
+
+    GET /companies
+
+    GET /companies/:handle
+
+    PATCH /companies/:handle
+
+    DELETE /companies/:handle
+       works for admin 
+
+       /companies/c1
+
+
 
     Jobs:
 
     Users:
+
+        POST /users
+
+        works for admins: create non-admin
+        {
+          username: "u-new",
+          firstName: "First-new",
+          lastName: "Last-newL",
+          password: "password-new",
+          email: "new@email.com",
+          isAdmin: false,
+        }
+
+        works for admins: create admin
+        {
+          username: "u-new",
+          firstName: "First-new",
+          lastName: "Last-newL",
+          password: "password-new",
+          email: "new@email.com",
+          isAdmin: true,
+        }
+        
+        unauth for users
+        {
+          username: "u-new",
+          firstName: "First-new",
+          lastName: "Last-newL",
+          password: "password-new",
+          email: "new@email.com",
+          isAdmin: true,
+        }
+
+        unauth for anon
+        {
+          username: "u-new",
+          firstName: "First-new",
+          lastName: "Last-newL",
+          password: "password-new",
+          email: "new@email.com",
+          isAdmin: true,
+        }
+
+        bad request if missing data
+        {
+          username: "u-new",
+        }
+
+        bad request if invalid data
+        {
+          username: "u-new",
+          firstName: "First-new",
+          lastName: "Last-newL",
+          password: "password-new",
+          email: "not-an-email",
+          isAdmin: true,
+        }
+
+        GET /users
+
+        works for admins
+        /users
+
+        unauth for non-admin users
+        
+
+        GET /users/:username
+            /users/u1
+
